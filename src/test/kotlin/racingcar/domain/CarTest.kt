@@ -3,15 +3,17 @@ package racingcar.domain
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import racingcar.service.MovableNumberGenerator
+import racingcar.service.StoppableNumberGenerator
 
 class CarTest {
     @Test
     fun `자동차는 숫자가 4이상인 경우 이동합니다`() {
         val car = Car("test")
 
-        car.move(1)
+        car.move(StoppableNumberGenerator())
         assertThat(car.position).isEqualTo(0)
-        car.move(4)
+        car.move(MovableNumberGenerator())
         assertThat(car.position).isEqualTo(1)
     }
 }

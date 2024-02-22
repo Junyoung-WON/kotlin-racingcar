@@ -13,8 +13,8 @@ class WinnerServiceTest {
             Car("happy"),
             Car("cat")
         )
-        cars[0].move(5)
-        cars[1].move(5)
+        cars[0].move(MovableNumberGenerator())
+        cars[1].move(MovableNumberGenerator())
         assertThat(WinnerService.findWinners(cars)).isEqualTo(listOf("hodu", "happy"))
     }
 }
