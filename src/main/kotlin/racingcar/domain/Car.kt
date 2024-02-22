@@ -7,8 +7,7 @@ class Car(val name: String) {
     var position: Int = 0
         private set
 
-    fun move(numberGenerator: NumberGenerator) {
-        val number: Int = numberGenerator.generate()
+    fun move(number: Int) {
         if (number >= 4) position++
     }
 }
