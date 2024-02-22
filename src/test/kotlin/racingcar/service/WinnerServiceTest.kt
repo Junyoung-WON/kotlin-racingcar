@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import racingcar.domain.Car
+import racingcar.util.NumberGenerate
 
 class WinnerServiceTest {
     @Test
@@ -13,8 +14,10 @@ class WinnerServiceTest {
             Car("happy"),
             Car("cat")
         )
-        cars[0].move(MovableNumberGenerator())
-        cars[1].move(MovableNumberGenerator())
+        val movable = NumberGenerate { 4 }
+
+        cars[0].move(movable.get())
+        cars[1].move(movable.get())
         assertThat(WinnerService.findWinners(cars)).isEqualTo(listOf("hodu", "happy"))
     }
 }
